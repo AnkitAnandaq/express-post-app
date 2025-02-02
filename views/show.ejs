@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post in Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .post-container {
+            background-color: #252424;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #a52a2a;
+        }
+
+        .post-id {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #dddddd;
+        }
+
+        .post {
+            background-color: #333333;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .user {
+            font-size: 1.5em;
+            color: #a52a2a;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 1.2em;
+            color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="post-container">
+        <h2>Here is your post</h2>
+        <p class="post-id">Post id: <%=post.id %>
+        </p>
+        <div class="post">
+            <h3 class="user">@<%=post.username%>
+            </h3>
+            <p class="content">
+                <%=post.content%>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

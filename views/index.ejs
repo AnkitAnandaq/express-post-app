@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1e1e1e;
+        color: #ffffff;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .posts-container {
+        background-color: #252424;
+        width: 70%;
+        max-width: 800px;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+        text-align: center;
+        color: #a52a2a;
+    }
+
+    /* Create New Post Box */
+    .create-post-box {
+        background-color: #333333;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .create-post {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .create-post:hover {
+        background-color: #0056b3;
+    }
+
+    /* Post Container */
+    .post {
+        background-color: #333333;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .user {
+        font-size: 1.5em;
+        color: #a52a2a;
+    }
+
+    .content {
+        font-size: 1.2em;
+        color: #dddddd;
+        margin: 10px 0;
+    }
+
+    /* Link Styles */
+    a {
+        color: #007bff;
+        text-decoration: none;
+        margin-right: 15px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Button Styles */
+    button {
+        background-color: #a52a2a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #8b1a1a;
+    }
+</style>
+
+<body>
+
+    <div class="posts-container">
+        <h1>Quora Posts</h1>
+
+        <!-- Create New Post Box -->
+        <div class="create-post-box">
+            <a href="http://localhost:3000/posts/new" class="create-post">Create a new Post</a>
+        </div>
+
+        <% for(post of posts){ %>
+            <div class="post">
+                <h3 class="user">@<%=post.username%></h3>
+                <p class="content"><%=post.content%></p>
+                <a href="http://localhost:3000/posts/<%=post.id%>">See in Detail</a>
+                <a href="http://localhost:3000/posts/<%=post.id%>/edit">Edit</a>
+                <form method="post" action="/posts/<%=post.id%>?_method=DELETE" style="display:inline;">
+                    <button>Delete Post</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+
+</body>
+
+</html>
